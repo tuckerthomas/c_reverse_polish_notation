@@ -59,7 +59,7 @@ int rpnCalc(char* s) {
 	char *ptr = strtok(s, " ");
 
 	while (ptr != NULL) {
-		printf("Checking: %s\n", ptr);
+		printf("\nChecking: %s\n", ptr);
 		if ((int) ptr[0] >= 48 && (int) ptr[0] <= 57) {
 			int num;
 
@@ -73,8 +73,8 @@ int rpnCalc(char* s) {
 				exit(1);
 			}
 
-			int num1 = pop(&numbers);
 			int num2 = pop(&numbers);
+			int num1 = pop(&numbers);
 
 			printf("Adding numbers %d and %d\n", num1, num2);
 			push(&numbers, num1 + num2);
@@ -84,8 +84,8 @@ int rpnCalc(char* s) {
 				exit(1);
 			}
 
-			int num1 = pop(&numbers);
 			int num2 = pop(&numbers);
+			int num1 = pop(&numbers);
 
 			printf("Subtracting numbers %d and %d\n", num1, num2);
 			push(&numbers, num1 - num2);
@@ -95,8 +95,8 @@ int rpnCalc(char* s) {
 				exit(1);
 			}
 
-			int num1 = pop(&numbers);
 			int num2 = pop(&numbers);
+			int num1 = pop(&numbers);
 
 			printf("Multiplying numbers %d and %d\n", num1, num2);
 			push(&numbers, num1 * num2);
@@ -106,11 +106,13 @@ int rpnCalc(char* s) {
 				exit(1);
 			}
 
-			int num1 = pop(&numbers);
 			int num2 = pop(&numbers);
+			int num1 = pop(&numbers);
 
 			printf("Dividing numbers %d and %d\n", num1, num2);
 			push(&numbers, num1 / num2);
+		} else if (ptr[0] == '=') {
+			break;
 		}
 
 		ptr = strtok(NULL, " ");
